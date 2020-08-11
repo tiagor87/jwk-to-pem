@@ -7,8 +7,8 @@ namespace JwkToPem.Core
 {
     public class JpKeys : IEnumerable<JsonWebKey>
     {
-        private string Audience => "JPMC:URI:RS-106359-52906-MSGatewayMundipagg-UAT";
-        private string Issuer => "http://idauat.jpmorganchase.com/adfs/services/trust";
+        private string _audience => "JPMC:URI:RS-106359-52906-MSGatewayMundipagg-UAT";
+        private string _issuer => "http://idauat.jpmorganchase.com/adfs/services/trust";
 
         private TokenValidationParameters ValidationParameters => new TokenValidationParameters
         {
@@ -16,8 +16,8 @@ namespace JwkToPem.Core
             RequireSignedTokens = true,
             ValidateAudience = true,
             ValidateIssuer = true,
-            ValidAudience = Audience,
-            ValidIssuer = Issuer,
+            ValidAudience = _audience,
+            ValidIssuer = _issuer,
             IssuerSigningKeys = this
         };
 
