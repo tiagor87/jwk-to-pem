@@ -1,0 +1,19 @@
+using FluentAssertions;
+using Xunit;
+
+namespace JwkToPem.Core.Tests
+{
+    public class JpKeysTests
+    {
+        [Fact]
+        public void GivenKeyWhenVerifyTokenShouldReturnTrue()
+        {
+            var keys = new JpKeys();
+
+            var token =
+                "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkJEYXo0bE5jZ0Y2eHRsY0RfVDl6bzFUU1BaRSJ9.eyJhdWQiOiJKUE1DOlVSSTpSUy0xMDYzNTktNTI5MDYtTVNHYXRld2F5TXVuZGlwYWdnLVVBVCIsImlzcyI6Imh0dHA6Ly9pZGF1YXQuanBtb3JnYW5jaGFzZS5jb20vYWRmcy9zZXJ2aWNlcy90cnVzdCIsImlhdCI6MTU5NzE1MjYwMCwiZXhwIjoxNTk3MTgxNDAwLCJKUE1DSWRlbnRpZmllciI6Ik43MzcyOTQiLCJSb2xlIjpbIk11bmRpcGFnZ19TdWJzY3JpcHRpb25zX1NhbmRib3gtNTI5MDYtMTA2MzU5LVVBVCIsIk11bmRpcGFnZ19JbnZvaWNlc19TYW5kYm94LTUyOTA2LTEwNjM1OS1VQVQiLCJNdW5kaXBhZ2dfUGxhbnNfU2FuZGJveC01MjkwNi0xMDYzNTktVUFUIiwiTXVuZGlwYWdnX0NoYXJnZXNfU2FuZGJveC01MjkwNi0xMDYzNTktVUFUIiwiTXVuZGlwYWdnX09yZGVyc19TYW5kYm94LTUyOTA2LTEwNjM1OS1VQVQiXSwiQ2xpZW50SVBBZGRyZXNzIjoiMTY5LjkyLjAuMjAiLCJhcHB0eXBlIjoiQ29uZmlkZW50aWFsIiwiYXBwaWQiOiJDQy0xMDgwNDgtTjczNzI5NC03MDQxMC1VQVQiLCJhdXRobWV0aG9kIjoiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2F1dGhlbnRpY2F0aW9ubWV0aG9kL3dpbmRvd3MiLCJhdXRoX3RpbWUiOiIyMDIwLTA4LTExVDEzOjMwOjAwLjUyMVoiLCJ2ZXIiOiIxLjAifQ.f4_3gzsOkv9xYoHtINKtWkzTtPD7C43iROiy7fKKEDbC1vduML2zHXPVUTWjumrT2SjfU34JdT2RaCycgTe867Dwa4mBc5V6d6mihOtZRFJ2iDKlGum2feSKOrf_GRoSkDZwIQcC6ZdrqsdfxZkNuNCyHkKLTLC5h8BJ51J5m1ftnjek-J7k1a_oefyjaq2NUp5WOQn6b6HUwBZCY_Y79j-CaR1EkuKmeac-8hjlV0LJ4SUt2asDqMHhgkJ7MCkon-4xivB_I5mVgdgLuH8RMJEBV0uQQ_S43LT8ArDFZRrJQRIAM1KLf4mDBFdYvT_4YSdqPNyPFUagbfvRDQfVbg";
+
+            keys.GetValidatedToken(token).Should().NotBeNull();
+        }
+    }
+}
